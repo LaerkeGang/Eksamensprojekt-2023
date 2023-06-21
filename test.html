@@ -1,0 +1,30 @@
+<div id="div1" style="display: none;">Div 1</div>
+<div id="div2" style="display: none;">Div 2</div>
+
+<button onclick="skiftDiv(-1)">Tilbage</button>
+<button onclick="skiftDiv(1)">Frem</button>
+
+<p id="sideTekst"></p>
+
+<script>
+  let nuværendeDiv = 1;
+  const antalSider = 2;
+
+  function skiftDiv(fremad) {
+    nuværendeDiv += fremad;
+
+    // Skjul begge div-elementer
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div2").style.display = "none";
+
+    // Vis den korrekte div baseret på nuværendeDiv
+    if (nuværendeDiv === 1) {
+      document.getElementById("div1").style.display = "block";
+    } else if (nuværendeDiv === 2) {
+      document.getElementById("div2").style.display = "block";
+    }
+
+    // Opdater sideTekst
+    document.getElementById("sideTekst").textContent = nuværendeDiv + "/" + antalSider;
+  }
+</script>
